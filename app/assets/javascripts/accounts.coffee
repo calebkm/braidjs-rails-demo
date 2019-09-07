@@ -51,18 +51,20 @@ window.statebus_ready.push ->
   bus('/accounts/*').to_delete = (key) ->
     console.log "Called :to_delete on #{key}"
 
-    $.ajax
-      method: 'DELETE'
-      dataType: 'JSON'
-      headers: {
-        Accept: 'application/json',
-        'X-CSRF-Token': $("meta[name='csrf-token']").attr('content')
-      }
-      url: key
-    .done (results) ->
-      # ERROR HANDLING?
-      results['key'] = obj.key
-      bus.dirty(obj.key)
-      # What are we returning here?
+    # Still a WIP :-)
+
+    # $.ajax
+    #   method: 'DELETE'
+    #   dataType: 'JSON'
+    #   headers: {
+    #     Accept: 'application/json',
+    #     'X-CSRF-Token': $("meta[name='csrf-token']").attr('content')
+    #   }
+    #   url: key
+    # .done (results) ->
+    #   # ERROR HANDLING?
+    #   results['key'] = obj.key
+    #   bus.dirty(obj.key)
+    #   # What are we returning here?
 
     
