@@ -1,0 +1,27 @@
+<script type='statebus'>
+  dom.ACCOUNTS = ->
+    accounts = fetch('/accounts')
+
+    DIV null,
+      P null,
+        'This page shows the '
+        CODE 'html'
+        ' response.'
+
+      P null,
+        'View the JSON response '
+        A
+          href: "<%= accounts_path(format: 'json') %>"
+          'here.'
+
+      H1 'Accounts'
+
+      unless loading()
+        OL null,
+          for account in accounts.results || [] # Why do we need this? Loading() doesn't seem to work
+            LI account.name
+
+</script> 
+
+
+<ACCOUNTS></ACCOUNTS>
